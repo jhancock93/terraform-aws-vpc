@@ -386,7 +386,8 @@ resource "aws_subnet" "public" {
         "%s-${var.public_subnet_suffix}-%s",
         var.name,
         element(var.azs, count.index),
-      )
+      ),
+      "SubnetIndex" = format("%d", count.index)
     },
     var.tags,
     var.public_subnet_tags,
@@ -414,7 +415,8 @@ resource "aws_subnet" "private" {
         "%s-${var.private_subnet_suffix}-%s",
         var.name,
         element(var.azs, count.index),
-      )
+      ),
+      "SubnetIndex" = format("%d", count.index)
     },
     var.tags,
     var.private_subnet_tags,
@@ -443,7 +445,8 @@ resource "aws_subnet" "outpost" {
         "%s-${var.outpost_subnet_suffix}-%s",
         var.name,
         var.outpost_az,
-      )
+      ),
+      "SubnetIndex" = format("%d", count.index)
     },
     var.tags,
     var.outpost_subnet_tags,
@@ -471,7 +474,8 @@ resource "aws_subnet" "database" {
         "%s-${var.database_subnet_suffix}-%s",
         var.name,
         element(var.azs, count.index),
-      )
+      ),
+      "SubnetIndex" = format("%d", count.index)
     },
     var.tags,
     var.database_subnet_tags,
@@ -515,7 +519,8 @@ resource "aws_subnet" "redshift" {
         "%s-${var.redshift_subnet_suffix}-%s",
         var.name,
         element(var.azs, count.index),
-      )
+      ),
+      "SubnetIndex" = format("%d", count.index)
     },
     var.tags,
     var.redshift_subnet_tags,
@@ -559,7 +564,8 @@ resource "aws_subnet" "elasticache" {
         "%s-${var.elasticache_subnet_suffix}-%s",
         var.name,
         element(var.azs, count.index),
-      )
+      ),
+      "SubnetIndex" = format("%d", count.index)
     },
     var.tags,
     var.elasticache_subnet_tags,
@@ -603,7 +609,8 @@ resource "aws_subnet" "intra" {
         "%s-${var.intra_subnet_suffix}-%s",
         var.name,
         element(var.azs, count.index),
-      )
+      ),
+      "SubnetIndex" = format("%d", count.index)
     },
     var.tags,
     var.intra_subnet_tags,
